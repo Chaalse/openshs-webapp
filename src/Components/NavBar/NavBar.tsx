@@ -7,22 +7,11 @@ export const NavBar: FC<{}> = () => {
     return (
         <div className={'navbar'}>
             <div className={'navbar-header'}>
-                <div className={'navbar-header__title'}>
-                    OpenSHS Label Project
+                <div className={'navbar__openshs-link'}>
+                    OpenSHS
                 </div>
-                <div className={'navbar-header__subtitle'}>
-                A labeling extension for <a href={Config.OPENSHS_URL}>Open Smart Home Simulator</a>
-                </div>
-            </div>
-            <div className={'navbar-body'}>
-                <div className={'navbar-item'}>
-                    HOME
-                </div>
-                <div className={'navbar-item'}>
-                    ABOUT
-                </div>
-                <div className={'navbar-item'}>
-                    START!
+                <div className={'navbar__openshs-login'}>
+                    LOGIN
                 </div>
             </div>
         </div>

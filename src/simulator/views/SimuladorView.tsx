@@ -10,6 +10,7 @@ type SimuladorViewProps = {
 export const SimuladorView: FC<SimuladorViewProps> = () => {
     return (
         <div className={'container'}>
+            
         </div>
     )
 }
