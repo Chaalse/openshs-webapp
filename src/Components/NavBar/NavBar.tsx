@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Config from "../../Config";
 import './NavBar.scss'
 
 
@@ -11,8 +10,22 @@ export const NavBar: FC<{}> = () => {
                     OpenSHS
                 </div>
                 <div className={'navbar__openshs-login'}>
-                    LOGIN
+                    <button>
+                        LOG IN
+                    </button>
                 </div>
+            </div>
+            <div className={'navbar-body'}>
+                <div className={'navbar-body__text'}>
+                    <h4>Welcome to the configuration wizard for Open Smart Home Simulator</h4>
+                    <p>Following, there is some information about the project now and where it is headed</p>
+                    <p>You can have a read on it or go straight to the action pressing START!</p>
+                </div>
+            </div>
+            <div className={'navbar-footer'}>
+                <button>
+                    START!
+                </button>
             </div>
         </div>
 

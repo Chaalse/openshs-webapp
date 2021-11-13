@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SimuladorView } from "./views/SimuladorView";
+import { SimuladorView } from "./SimuladorView";
 
 
 
