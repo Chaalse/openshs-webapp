@@ -1,34 +1,33 @@
-import React, { FC, MouseEvent, ReactNode, useState } from "react";
+import React, { FC, MouseEvent, ReactNode, useEffect, useState } from "react";
 import './ActivitiesBoxView.scss';
 import 'material-icons/iconfont/material-icons.scss';
 import Icon from "../../Components/Icon/Icon";
+import { OptionsTabs, TabIdentifiers } from "./ActivitiesBoxDataContainer";
 
-enum OptionsTabs {
-    ACTIVITIES = 'activities',
-    CONTEXTS = 'contexts',
-    COLUMNS = 'columns',
-    OBTR_LEVELS = 'levels'
-}
+
 
 type ActivitiesBoxViewProps = {
     activityLabels: string[],
-    handleSubmitLabels: (labels: string[], tab?: OptionsTabs) => void
+    handleSubmitLabels: (labels: any) => void,
+    markedTexts: (value: string, colorClass?: string) => React.ReactNode,
+    renderPythonButtons: (tab?: TabIdentifiers) => React.ReactNode
+    renderPythonSignals: (tab?: TabIdentifiers) => React.ReactNode
 }
 
 const ActivitiesBoxView: FC<ActivitiesBoxViewProps> = ({
     activityLabels,
-    handleSubmitLabels
+    handleSubmitLabels,
+    markedTexts,
+    renderPythonButtons,
+    renderPythonSignals
 }) => {
+
+    const comment1 = '#This are the lines to add the buttons';
+    const comment2 = '#This are the lines to set the signals'
 
     const [counter, setCounter] = useState(1);
 
-    const markedTexts = (text: string, colorClass?: string): React.ReactNode => {
-        if (colorClass!) {
-            return (<b className={colorClass}>{text}</b>)
-        } else {
-            return (<b><i>{text}</i></b>)
-        }
-    }
+    const [tabIdentifier, setTabIdentifier] = useState<TabIdentifiers>(TabIdentifiers.ACTIVITIES);
 
     const handleAddField = () => {
         const div = document.createElement('div');
@@ -60,7 +59,7 @@ const ActivitiesBoxView: FC<ActivitiesBoxViewProps> = ({
         return
     }
 
-    const handleRemoveField = (e: any) => {
+    const handleRemoveField = () => {
         const div = document.getElementById('fieldArray')!;
         const element = document.getElementById(`added-field-${counter}`)!
         div.removeChild(element);
@@ -68,63 +67,70 @@ const ActivitiesBoxView: FC<ActivitiesBoxViewProps> = ({
     }
 
     const handleGenerateCode = () => {
-        let userLabels: string[] = [];
+        const inputs = document.getElementsByTagName('input');
+
+        handleSubmitLabels(inputs);
+
+    }
+
+    const handleChangeTab = (e: any) => {
         const inputs = document.getElementsByTagName('input');
         for (let i = 0; i < inputs.length; i++) {
-            const element = inputs.item(i);
-            if (element!.value !== '') {
-                userLabels.push(element!.value);
+            inputs.item(i)!.value = '';
+        }
+
+        switch (e.target.id) {
+            case OptionsTabs.ACTIVITIES:
+                setTabIdentifier(TabIdentifiers.ACTIVITIES);
+                break;
+            case OptionsTabs.OBTR_LEVELS:
+                setTabIdentifier(TabIdentifiers.OBTR_LEVELS);
+                break;
+            default:
+                break;
+        }
+
+        handleGenerateCode();
+    }
+
+    const onCopyToClipboard = () => {
+        const copiedDiv = document.getElementById('code-textbox');
+        const text = copiedDiv!.textContent!;
+        navigator.clipboard.writeText(text);
+
+    }
+
+    let lineNumbers: string[] = [];
+    const handleRenderLineNumbers = () => {
+        const pythonDiv = document.getElementById('python-div');
+        let codeLines;
+        if (pythonDiv !== null) {
+            codeLines = pythonDiv!.getElementsByTagName('p');
+            const max = codeLines ? codeLines.length : 6;
+            for (let i = 0; i < max; i++) {
+                lineNumbers.push('');
             }
         }
-        handleSubmitLabels(userLabels);
 
     }
 
-    const renderPythonCode = (): React.ReactNode => {
-
-        return (
-            <div className={'code-textbox'}>
-                {activityLabels.map((label) => {
-                    let variableDeclaration: string = `self.${label}_btn `;
-                    let functionCall: string = 'bgui.FrameButton(';
-                    let parameterFrame: string = 'self.frame';
-                    let parameterText: string = 'text';
-                    let parameterSize: string = 'size';
-                    let parameterPos: string = 'pos';
-                    let parameterEndFunction: string = ')';
-                    return (
-                        <div className={'lines lines__in-code'}>
-
-                            <p>{markedTexts(variableDeclaration, 'variable_code')}</p>
-                            <p>={markedTexts(functionCall, 'function_code')}</p>
-                            <p>{markedTexts(parameterFrame, 'variable_code')},&nbsp;</p>
-                            <p>{markedTexts(parameterText, 'variable_code')}{'='}</p>
-                            <p>{`'${label}'`},&nbsp;</p>
-                            <p>{markedTexts(parameterSize, 'variable_code')}{'=[0.1, 0.05]'},&nbsp;</p>
-                            <p>{markedTexts(parameterPos, 'variable_code')}{'=[0.90, 0.65]'}</p>
-                            <p>{markedTexts(parameterEndFunction, 'function_code')}</p>
-                        </div>
-                    )
-                })
-                }
-            </div>
-        )
-
-    }
+    useEffect(() => {
+        handleRenderLineNumbers();
+    }, [document]);
 
     return (
         <div className={'activities-container'}>
             <h1>How to customize activities</h1>
-            <p>{`1. Set as many activities you want to add.`}</p>
-            <p>{`2. Insert a name for each activity, this name will be shown in the button text.`}</p>
-            <p>{`3. Generate the code and paste it in the `}{markedTexts('ui.py')}{` file, that is found in the `}{markedTexts('[simulator-root]/app/blender')}{' folder'}</p>
+            <p className={'instructions'}>{`1. Set as many activities you want to add.`}</p>
+            <p className={'instructions'}>{`2. Insert a name for each activity, this name will be shown in the button text.`}</p>
+            <p className={'instructions'}>{`3. Generate the code and paste it in the `}{markedTexts('ui.py')}{` file, that is found in the `}{markedTexts('[simulator-root]/app/blender')}{' folder'}</p>
             <div className={'activities-div'}>
                 <div className={'form-col'}>
                     <div className={'activities-form'} id={'fieldArray'}>
 
                         <div className={'added-field'} id={'added-field-0'}>
                             <input placeholder={'Activity name'} />
-                            <button className={'field-btn field-btn__add'} onClick={handleAddField}><Icon icon={'add'} /></button>
+                            <button className={'field-btn'} onClick={handleAddField}><Icon icon={'add'} /></button>
                         </div>
                     </div>
                     <button className={'generate-button'} onClick={handleGenerateCode}>Generate code<Icon icon={'source'} /></button>
@@ -135,19 +141,66 @@ const ActivitiesBoxView: FC<ActivitiesBoxViewProps> = ({
                             <span className={'lines lines__numbers'}>
                                 {1}
                             </span>
-                            {activityLabels.map((element, index) => {
+                            {activityLabels.map((line, index) => {
+
                                 return (
                                     <span className={'lines lines__numbers'}>
                                         {index + 2}
                                     </span>
                                 )
-                            })}
+
+                            })
+                            }
+                            <span className={'lines lines__numbers'}>
+                                {activityLabels.length + 2}
+                            </span>
+                            {activityLabels.map((line, index) => {
+
+                                return (
+                                    <span className={'lines lines__numbers'}>
+                                        {activityLabels.length + index + 3}
+                                    </span>
+                                )
+
+                            })
+                            }
+
                         </div>
-                        {
-                            renderPythonCode()
-                        }
+                        <div className={'code-textbox__inside'}>
+                            <div className={'tabs-container'}>
+                                <span
+                                    className={`tab ${tabIdentifier === TabIdentifiers.ACTIVITIES ? 'selected' : ''}`}
+                                    id={OptionsTabs.ACTIVITIES}
+                                    onClick={(e) => handleChangeTab(e)}
+                                >
+                                    Activities
+                                </span>
+                                <span
+                                    className={`tab ${tabIdentifier === TabIdentifiers.OBTR_LEVELS ? 'selected' : ''}`}
+                                    id={OptionsTabs.OBTR_LEVELS}
+                                    onClick={(e) => handleChangeTab(e)}
+                                >
+                                    Obstrusivity
+                                </span>
+                                <span className={'tab-container-background'}></span>
+                            </div>
+                            <div className={'code-textbox'} id={'code-textbox'}>
+                                <div className={'lines lines__in-code'}>
+                                    <p>{markedTexts(comment1, 'comment_code')}{'\n'}</p>
+                                </div>
+                                {
+                                    renderPythonButtons(tabIdentifier)
+                                }
+                                <div className={'lines lines__in-code'}>
+                                    <p>{markedTexts(comment2, 'comment_code')}{'\n'}</p>
+                                </div>
+                                {
+                                    renderPythonSignals(tabIdentifier)
+                                }
+                            </div>
+                        </div>
                     </div>
-                    <button className={'copy-btn'}>Copy to Clipboard <Icon icon={'content_copy'} /></button>
+                    <button className={'copy-btn'} onClick={onCopyToClipboard}>Copy to Clipboard <Icon icon={'content_copy'} /></button>
                 </div>
             </div>
         </div>
