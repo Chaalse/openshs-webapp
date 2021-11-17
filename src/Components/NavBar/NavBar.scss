@@ -1,61 +1,102 @@
 .navbar {
     background: rgb(92,171,172);
-    background: linear-gradient(180deg, rgba(92,171,172,0.9752275910364145) 16%, rgba(255,255,255,0.8715861344537815) 100%);
-    width: 100%;
-    height: 44vh;
+    background: linear-gradient(180deg, rgba(92,171,172,1) 36%, rgba(255,255,255,0.8715861344537815) 100%);
+    height: 45vh;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    top: 0;
+}
+
+.navbar-header {
+    color: floralwhite;
+    display: flex;
+    margin-top: 30px;
+    flex-direction: row;
+    height: 15%;
+    justify-content: space-between;
 }
 
 .navbar-body {
     display: flex;
     flex-direction: row;
+    height: 25vh;
+    align-items: flex-start;
+    justify-content: center;
+    color: floralwhite;
+    margin-top: 30px;
+
+    h4 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 50px;
+    }
+
+    p {
+        display: flex;
+        justify-content: center;
+        font-size: 1.3rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 
-.navbar-header {
-    color: azure;
+.navbar-footer {
     display: flex;
-    margin-top: 30px;
     flex-direction: row;
-    align-content: space-between;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: floralwhite;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color:rgba(13, 63, 82, 0.918) ;
+        border-radius: 1.5rem;
+        border-color: transparent;
+        width: 98px;
+        height: 48px;
+        cursor: pointer;
+        position: fixed;
+        top: auto;
+        &:hover {
+            color: rgba(13, 63, 82, 0.918);
+            background-color: floralwhite;
+        }
+    }
 }
 
 .navbar__openshs-link {
-    font-size: 2rem;
-    font-weight: bolder;
+    font-size: 2.5rem;
+    font-weight: bold;
     display: flex;
+    align-items: center;
     margin-left: 40px;
-    cursor: pointer;
-     &:hover {
-         color: rgba(13, 62, 82, 0.822);
-     }
 }
 
 .navbar__openshs-login {
     display: flex;
-    align-self: flex-end;
-}
-
-.navbar-item {
-    display: flex;
+    margin-right: 50px;
+    
     align-items: center;
-    justify-content: center;
-    background: transparent;
-    font-size: large;
-    color: aliceblue;
-    width: 6vw;
-    max-height: 5vh;
-    margin: 10px;
-    padding: 10px;
-    border: 2px solid gainsboro;
-    border-radius: 5px;
-    cursor: pointer;
-
-    &:hover {
-        color: slategray;
-        border-color: slategray;
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: floralwhite;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color:rgba(13, 63, 82, 0.637) ;
+        border-radius: 1.5rem;
+        border-color: transparent;
+        width: 98px;
+        height: 48px;
+        cursor: pointer;
+        &:hover {
+            color: rgba(13, 63, 82, 0.918);
+            background-color: floralwhite;
+        }
     }
 }
