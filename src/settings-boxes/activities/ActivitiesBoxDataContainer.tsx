@@ -63,7 +63,7 @@ const ActivitiesBoxDataContainer: FC<ActivityBoxProps> = ({}) => {
                             <p>{markedTexts(parameterText, 'variable_code')}{'='}</p>
                             <p>{`'${label}'`},{' '}</p>
                             <p>{markedTexts(parameterSize, 'variable_code')}{'=[0.1, 0.05]'},{' '}</p>
-                            <p>{markedTexts(parameterPos, 'variable_code')}{tab === TabIdentifiers.ACTIVITIES ? `=[0.90, ${0.95-(0.5*index)}]` : `=[0.90, ${0.55-(0.5*index)}]`}</p>
+                            <p>{markedTexts(parameterPos, 'variable_code')}{tab === TabIdentifiers.ACTIVITIES ? `=[0.90, ${(0.95-(0.05*index)).toFixed(2)}]` : `=[0.90, ${(0.55-(0.05*index)).toFixed(2)}]`}</p>
                             <p>{markedTexts(parameterEndFunction, 'function_code')}{'\n'}</p>
 
                         </div>
