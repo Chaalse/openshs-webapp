@@ -1,12 +1,19 @@
 import { FC } from "react";
+import Config from "../../Config";
+import Icon from "../Icon/Icon";
 import './NavBar.scss'
 
 
 export const NavBar: FC<{}> = () => {
+
+    const scrollToCode = () => {
+        window.scrollTo(0, 800);
+    }
+
     return (
         <div className={'navbar'}>
             <div className={'navbar-header'}>
-                <div className={'navbar__openshs-link'}>
+                <div className={'navbar__openshs'}>
                     OpenSHS
                 </div>
                 <div className={'navbar__openshs-login'}>
@@ -23,7 +30,7 @@ export const NavBar: FC<{}> = () => {
                 </div>
             </div>
             <div className={'navbar-footer'}>
-                <button>
+                <button onClick={scrollToCode}>
                     START!
                 </button>
             </div>

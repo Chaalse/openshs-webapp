@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .navbar {
     background: rgb(92,171,172);
     background: linear-gradient(180deg, rgba(92,171,172,1) 36%, rgba(255,255,255,0.8715861344537815) 100%);
@@ -12,7 +14,7 @@
     display: flex;
     margin-top: 30px;
     flex-direction: row;
-    height: 15%;
+    height: 20%;
     justify-content: space-between;
 }
 
@@ -53,27 +55,28 @@
         color: floralwhite;
         font-size: 1rem;
         font-weight: bold;
-        background-color:rgba(13, 63, 82, 0.918) ;
+        background-color:$ocean-blue;
         border-radius: 1.5rem;
         border-color: transparent;
         width: 98px;
         height: 48px;
         cursor: pointer;
-        position: fixed;
         top: auto;
         &:hover {
-            color: rgba(13, 63, 82, 0.918);
+            color: $ocean-blue;
             background-color: floralwhite;
         }
     }
 }
 
-.navbar__openshs-link {
+.navbar__openshs {
     font-size: 2.5rem;
     font-weight: bold;
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-left: 40px;
+   
 }
 
 .navbar__openshs-login {
@@ -88,14 +91,14 @@
         color: floralwhite;
         font-size: 1rem;
         font-weight: bold;
-        background-color:rgba(13, 63, 82, 0.637) ;
+        background-color:$ocean-blue;
         border-radius: 1.5rem;
         border-color: transparent;
         width: 98px;
         height: 48px;
         cursor: pointer;
         &:hover {
-            color: rgba(13, 63, 82, 0.918);
+            color: $ocean-blue;
             background-color: floralwhite;
         }
     }
