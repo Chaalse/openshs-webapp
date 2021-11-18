@@ -21,29 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "files": {
-    "main.css": "./static/css/main.397c30c1.chunk.css",
-    "main.js": "./static/js/main.fef6f6bb.chunk.js",
-    "main.js.map": "./static/js/main.fef6f6bb.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.bd6d987d.js",
-    "runtime-main.js.map": "./static/js/runtime-main.bd6d987d.js.map",
-    "static/css/2.e09c375b.chunk.css": "./static/css/2.e09c375b.chunk.css",
-    "static/js/2.036b616b.chunk.js": "./static/js/2.036b616b.chunk.js",
-    "static/js/2.036b616b.chunk.js.map": "./static/js/2.036b616b.chunk.js.map",
-    "index.html": "./index.html",
-    "static/css/2.e09c375b.chunk.css.map": "./static/css/2.e09c375b.chunk.css.map",
-    "static/css/main.397c30c1.chunk.css.map": "./static/css/main.397c30c1.chunk.css.map",
-    "static/js/2.036b616b.chunk.js.LICENSE.txt": "./static/js/2.036b616b.chunk.js.LICENSE.txt",
-    "static/media/ContrasteAzulOscuro.44ebd0ca.jpg": "./static/media/ContrasteAzulOscuro.44ebd0ca.jpg",
-    "static/media/captura.ca465339.jpg": "./static/media/captura.ca465339.jpg",
-    "static/media/material-icons.scss": "./static/media/material-icons.6d812dea.woff2"
-  },
-  "entrypoints": [
-    "./static/js/runtime-main.bd6d987d.js",
-    "./static/css/2.e09c375b.chunk.css",
-    "./static/js/2.036b616b.chunk.js",
-    "./static/css/main.397c30c1.chunk.css",
-    "./static/js/main.fef6f6bb.chunk.js"
-  ]
+  "background_color": "#ffffff"
 }
