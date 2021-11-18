@@ -4,6 +4,7 @@ import ActivitiesBoxDataContainer from "../settings-boxes/activities/ActivitiesB
 import './SimuladorView.scss';
 import imagenCasa from '../assets/ContrasteAzulOscuro.jpg';
 import imagenSimulador from '../assets/captura.jpg';
+import SimuladorFooter from "./views/SimuladorFooter";
 
 type SimuladorViewProps = {
 
@@ -12,6 +13,7 @@ type SimuladorViewProps = {
 
 export const SimuladorView: FC<SimuladorViewProps> = () => {
     return (
+        <>
         <div className={'main-container'}>
             <div className={'main-row'}>
                 <div className={'left-col'}>
@@ -46,5 +48,7 @@ export const SimuladorView: FC<SimuladorViewProps> = () => {
             </div>
             <ActivitiesBoxDataContainer />
         </div>
+        <SimuladorFooter/>
+        </>
     )
 }
