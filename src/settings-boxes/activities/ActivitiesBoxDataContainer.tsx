@@ -13,11 +13,9 @@ export enum TabIdentifiers {
     OBTR_LEVELS = 2,
 }
 
-type ActivityBoxProps = {
 
-}
 
-const ActivitiesBoxDataContainer: FC<ActivityBoxProps> = ({}) => {
+const ActivitiesBoxDataContainer: FC<{}> = () => {
 
     const [userLabels, setUserLabels] = useState<string[]>([]);
 

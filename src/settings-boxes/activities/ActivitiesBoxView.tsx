@@ -1,7 +1,7 @@
-import React, { FC, MouseEvent, ReactNode, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import './ActivitiesBoxView.scss';
 import 'material-icons/iconfont/material-icons.scss';
-import Icon from "../../Components/Icon/Icon";
+import Icon from "../../shared/components/CustomIcon/Icon";
 import { OptionsTabs, TabIdentifiers } from "./ActivitiesBoxDataContainer";
 
 
@@ -116,7 +116,7 @@ const ActivitiesBoxView: FC<ActivitiesBoxViewProps> = ({
 
     useEffect(() => {
         handleRenderLineNumbers();
-    }, [document]);
+    });
 
     return (
         <div className={'activities-container'}>

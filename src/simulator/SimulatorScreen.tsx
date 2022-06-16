@@ -1,10 +1,9 @@
 import { FC } from "react";
-import { SimuladorView } from "./SimuladorView";
-
+import SimulatorDataContainer from "./SimulatorDataContainer";
 
 
 export const SimulatorScreen: FC<{}> = () => {
     return (
-        <SimuladorView/>
+        <SimulatorDataContainer/>
     )
 }

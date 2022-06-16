@@ -1,6 +1,4 @@
 import { FC } from "react";
-import Config from "../../Config";
-import Icon from "../Icon/Icon";
 import './NavBar.scss'
 
 

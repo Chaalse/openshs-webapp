@@ -1,5 +1,4 @@
 import { FC } from "react";
-import Config from "../Config";
 import ActivitiesBoxDataContainer from "../settings-boxes/activities/ActivitiesBoxDataContainer";
 import './SimuladorView.scss';
 import imagenCasa from '../assets/ContrasteAzulOscuro.jpg';
@@ -27,10 +26,10 @@ export const SimuladorView: FC<SimuladorViewProps> = () => {
                         Therefore, this project is a solution to the issues within the Ambient Intelligence
                         research field to find wide, specific and detailed data corpus to be used in
                         machine learning processes and other developments.`}</p>
-                    <img src={imagenSimulador} alt={'Picture of the activities screen from the simulator'} width={600} height={300}></img>
+                    <img src={imagenSimulador} alt={'The activities screen from the simulator'} width={600} height={300}></img>
                 </div>
                 <div className={'right-col'}>
-                    <img src={imagenCasa} alt={'Picture of the simulated house from inside'} width={600} height={300}></img>
+                    <img src={imagenCasa} alt={'The simulated house from inside'} width={600} height={300}></img>
                     <h4>"Ok but... What am I looking at?"</h4>
                     <p>{`At this moment, the website itself is a tool to configure the main settings of the
                     simulator, it generates the appropriate code lines for each file so you can
