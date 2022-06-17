@@ -1,20 +1,19 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomeScreen from "../home/HomeScreen";
 import NavBar from "../shared/components/NavBar/NavBar";
 import { SimulatorScreen } from "../simulator/SimulatorScreen";
 
 const AppRouter = () => {
 
-    const navigate = useNavigate();
-
     return (
-        <>
-            <NavBar navigate={navigate} />
+        <BrowserRouter>
+            <NavBar />
             <Routes>
                 <Route path="/" element={<HomeScreen />} />
                 <Route path="/simulator" element={<SimulatorScreen />} />
             </Routes>
-        </>
+        </BrowserRouter>
     )
 }
 

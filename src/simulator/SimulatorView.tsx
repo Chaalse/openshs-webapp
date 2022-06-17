@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Card from "../shared/components/Card/Card";
-import './SimuladorView.scss';
+import './SimulatorView.scss';
 
 const SimulatorTitle = "Simulator Setup"
 
@@ -15,7 +15,7 @@ const SimulatorView: FC<SimulatorViewProps> = () => {
         <Card title={SimulatorTitle}>
             <div className="simulator">
                 <div className="simulator_settings">
-                    UNO
+                    UNO000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
                 </div>
                 <div className="simulator_settings">
                     DOS

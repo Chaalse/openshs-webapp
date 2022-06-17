@@ -1,27 +1,34 @@
-import { FC } from "react";
-import { Constantes } from "../../constants/Constantes";
+import { FC, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CustomButton } from "../CustomButton/CustomButton";
+import './scss/NavBar.scss';
+import { NavMenu } from "./views/NavMenu";
 
-type NavBarProps = {
-    navigate: (path: string) => void
-}
 
-const NavBar: FC<NavBarProps> = ({
-    navigate
-}) => {
+const NavBar: FC<{}> = () => {
 
+    const [isToggled, setIsToggled] = useState<boolean>(true);
+
+    const handleToggle = () => {
+        setIsToggled(!isToggled);
+    }
+
+    const navigate = useNavigate();
 
     return (
-        <nav>
-            <ul>
-                <li onClick={() => navigate(Constantes.HOME_PATH)}>
-                    HOME
-                </li>
-                <li onClick={() => navigate(Constantes.SIMULATOR_PATH)}>
-                    SIMULATOR
-                </li>
-                
-            </ul>
-        </nav>
+
+
+        <div className="side_nav">
+            <CustomButton
+                className="side_nav-toggler"
+                icon={!isToggled ? 'menu' : 'menu_open'}
+                onClick={handleToggle}
+            />
+            <NavMenu
+                isToggled={isToggled}
+                navigate={navigate}
+            />
+        </div>
     )
 }
 

@@ -1,0 +1,14 @@
+@import '../../../../styles/colors';
+
+.side_nav {
+    height: 100%;
+    width: 3%;
+    position: absolute;
+
+    min-width: 150px;
+    .side_nav-toggler {
+        margin: 30px 0 0 30px;
+        position: absolute;
+        z-index: 100;
+    }
+}

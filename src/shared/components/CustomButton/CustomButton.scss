@@ -1,0 +1,22 @@
+@import '../../../styles/colors';
+
+.custom-button {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    color: $ivory-white;
+    font-size: 14px;
+    padding: 8px;
+
+    &:hover {
+        background-color: $ivory-white;
+        color: $ocean-blue;
+    }
+
+
+    border: none;
+    background-color: $ocean-blue;
+}
