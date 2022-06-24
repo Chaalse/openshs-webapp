@@ -1,13 +1,12 @@
 @import '../../../../styles/colors';
 
 .nav_menu {
+    height: 100%;
     width: 100%;
     background-color: $translucid-ocean-blue;
-    margin-top: -80px;
-    padding-top: 160px;
-    height: 100%;
     position: relative;
-
+    padding-top: 100px;
+    
     &.visible {
         display: block;
     }

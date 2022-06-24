@@ -4,10 +4,20 @@
 body {
     background: $background-blue;
     font-family: 'Roboto', Arial, Tahoma, sans-serif;
+    height: 100%;
 }
 
 * {
+    .custom-button, .nav_menu_item, .nav_menu_item &.child {
+        cursor: pointer;
+    }
+
+
     overflow:  hidden;
     margin: 0;
     padding: 0;
+
+    label, h1, .icon {
+        color: $ivory-white;
+    }
 }   

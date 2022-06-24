@@ -1,10 +1,62 @@
 @import '../styles/colors.scss';
 
 .simulator {
-    
+    height: 100%;
     display: grid;
-    grid-template-columns: repeat( (1/3*100));
-    .simulator_settings {
-        background-color: $ivory-white;
+    grid-template-columns: repeat(3, minmax(300px, (1/3) * 100%));
+    gap: 30px;
+    margin-top: 5%;
+    padding: 0 10% 0 10%;
+}
+
+.simulator_settings {
+
+    height: fit-content;
+
+    .title {
+        color: $ocean-blue;
+        font-size: 18px;
     }
+
+    label,
+    .title {
+        color: $ocean-blue;
+    }
+
+    padding: 20px;
+    background-color: $ivory-white;
+
+    .simulator_settings-StartingTime {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .simulator_settings-DateTime {
+        font-size: 14px;
+        font-weight: bold;
+        border: 1.5px double $sky-blue;
+        border-radius: 0.4rem;
+        margin-bottom: 8px;
+
+        .date_time-pickers {
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: repeat(3, 33.3%);
+            padding: 8px 0 8px 0;
+        }
+
+        .datetime_checkbox {
+            padding-left: 20%;
+        }
+    }
+    .simulator_settings-DateTime { 
+        padding: 0 10px 0 10px;
+    }
+
+    .simulator_settings-input,
+    .simulator_settings-DateTime {
+        margin: 10px 0 10px 0;
+    }
+
 }

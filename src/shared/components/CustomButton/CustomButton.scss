@@ -12,8 +12,10 @@
     padding: 8px;
 
     &:hover {
+        label, .icon {
+            color: $ocean-blue;
+        }
         background-color: $ivory-white;
-        color: $ocean-blue;
     }
 
 

@@ -1,6 +1,22 @@
 .card {
+    height: 100%;
 
     .title {
-        margin: 10vh 0 0 15vw;
+        height: fit-content;
     }
+
+    &.main_screen {
+        .title {
+            margin: 8% 0 0 12%;
+        }
+    }
+    
+    &.inner {
+        border-radius: 0.6rem;
+
+        .title {
+            margin: 0;
+        }
+    }
+
 }

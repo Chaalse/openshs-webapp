@@ -6,17 +6,18 @@ import './Card.scss';
 type CardProps = {
     className?: string
     title: string,
-    
+    type? : 'main_screen' | 'inner'
 }
 
 
 const Card: FC<CardProps> = ({
     className,
     title,
-    children
+    type = 'main_screen',
+    children,
 }) => {
 
-    const classes = classNames('card', className)
+    const classes = classNames('card', className, type)
     return (
         <div className={classes}>
             <h1 className="title">
