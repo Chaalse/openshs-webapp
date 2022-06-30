@@ -2,7 +2,6 @@ import { FC } from "react";
 import Card from "../shared/components/Card/Card";
 import './SimulatorView.scss';
 import { DatasetColumnsForm } from "./views/forms/DatasetColumnsForm/DatasetColumnsForm";
-import { DatasetSettingsForm } from "./views/forms/DatasetSettingsForm/DatasetSettings";
 import RunSettingsForm from "./views/forms/RunSettingsForm/RunSettingsForm";
 
 const SimulatorTitle = "Simulator Setup"
@@ -18,13 +17,18 @@ const SimulatorView: FC<SimulatorViewProps> = () => {
         <Card title={SimulatorTitle}>
 
             <div className="simulator">
-                <RunSettingsForm/>
-                
+                <Card
+                    title="Customize simulation and datasets"
+                    type="inner"
+                    className="simulator_settings-container"
+                >
+                    <div className="grid">
+                        <RunSettingsForm />
 
-                <DatasetSettingsForm/>
+                        <DatasetColumnsForm />
+                    </div>
+                </Card>
 
-                <DatasetColumnsForm/>
-                
             </div>
         </Card>
     )

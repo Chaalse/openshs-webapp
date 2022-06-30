@@ -12,6 +12,10 @@ export const DatasetSettingsView: FC<DatasetSettingsViewProps> = () => {
             type="inner"
             title="Dataset settings"
             className="simulator_settings"
-        ></Card>
+        >
+            <div className="dataset_settings">
+                
+            </div>
+        </Card>
     )
 }

@@ -7,19 +7,21 @@ type CustomButtonProps = {
     text?: string,
     icon?: string,
     onClick: () => void,
-    className?: string
+    className?: string,
+    disabled?: boolean
 }
 
 export const CustomButton: FC<CustomButtonProps> = ({
     className,
     text,
     icon,
+    disabled,
     onClick
 }) => {
 
     const classes = classNames('custom-button', className)
     return (
-        <button className={classes} onClick={onClick}>
+        <button className={classes} onClick={onClick} disabled={disabled}>
             <label>{text}</label>
             {icon && <Icon icon={icon} />}
         </button>

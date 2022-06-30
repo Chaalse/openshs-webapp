@@ -24,19 +24,27 @@ export const RunSettingsFormView: FC<RunSettingsFormViewProps> = () => {
     return (
         <Card
             type="inner"
-            title="Simulation run settings"
+            title="Simulation settings"
             className="simulator_settings"
         >
-            <div className="simulator_settings-StartingTime">
+            <div className="simulator_settings-AggregateSettings">
+                <CustomInput
+                    text="Aggregated days"
+                    className="simulator_settings-input days"
+                />
+                <CustomInput
+                    text="Time margin"
+                    className="simulator_settings-input margin"
+                />
                 <CustomInput
                     text="Start date"
                     type="date"
-                    className="simulator_settings-input"
+                    className="simulator_settings-input date"
                 />
                 <CustomInput
                     text="Start hour"
                     type="time"
-                    className="simulator_settings-input"
+                    className="simulator_settings-input hour"
                 />
             </div>
             <div className="simulator_settings-DateTime">
@@ -57,8 +65,6 @@ export const RunSettingsFormView: FC<RunSettingsFormViewProps> = () => {
                         onChecked={handleMorningCheck}
                     />
                 </div>
-            </div>
-            <div className="simulator_settings-DateTime">
                 <div className="date_time-pickers">
                     <label>Day context</label>
                     <CustomInput
