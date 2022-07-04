@@ -10,7 +10,8 @@ type CustomInputProps = {
     value?: string,
     checked?: boolean,
     ref?: any,
-    onChange?: (value: string) => void
+    index?: number,
+    onChange?: (value: string, index?: number) => void
     onChecked?: () => void
 }
 
@@ -22,6 +23,7 @@ export const CustomInput: FC<CustomInputProps> = ({
     checked,
     value,
     ref,
+    index,
     onChange,
     onChecked
 }) => {
@@ -30,7 +32,7 @@ export const CustomInput: FC<CustomInputProps> = ({
 
     const onInputChange = (value: string) => {
         if (onChecked) { onChecked(); return; }
-        if (onChange) { onChange(value); return; }
+        if (onChange) { onChange(value, index); return; }
         setInputValue(value)
     }
 
