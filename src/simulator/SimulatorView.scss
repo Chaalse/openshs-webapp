@@ -58,18 +58,13 @@
 
         .simulator_settings-input {
 
-
             &.days,
             &.margin {
-                .custom_input-field {
-                    width: 30px;
-                }
+                width: 30px;
             }
 
             &.hour {
-                .custom_input-field {
-                    width: 65px;
-                }
+                width: 65px;
             }
 
         }
@@ -99,7 +94,7 @@
     }
 
     .simulator_settings-input {
-        margin: 6px 0 10px 0;
+        margin: 6px 0 10px 8px;
     }
 
 }
@@ -108,7 +103,7 @@
     display: grid;
     grid-template-columns: repeat(4, 24%);
     grid-template-rows: 2 40px;
-    gap: 16px;
+    gap: 8px;
     margin-top: 8px;
 
     .dataset_add-btn {
@@ -127,6 +122,7 @@
     }
     
     .dataset_input {
-        width: 90px;
+        width: 115px;
+        max-width: 115px;
     }
 }

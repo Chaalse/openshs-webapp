@@ -34,14 +34,14 @@ export const DatasetColumnsFormView: FC<DatasetColumnsFormProps> = ({
             <div className="dataset_settings">
                 {columns.map((column, i) => {
                     return (
-                        <div className="dataset_field">
+                        <div className="dataset_field" key={`field-${i}`}>
                             <CustomInput
                                 value={column.value}
                                 index={i}
                                 onChange={(e) => handleInputChange(e, i)}
                                 className={'dataset_input'}
                             />
-                            {i == 0 &&
+                            {i === 0 &&
                                 <CustomButton
                                     icon="add"
                                     className="dataset_add-btn"

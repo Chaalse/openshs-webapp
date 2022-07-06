@@ -33,17 +33,16 @@ export const CustomInput: FC<CustomInputProps> = ({
     const onInputChange = (value: string) => {
         if (onChecked) { onChecked(); return; }
         if (onChange) { onChange(value, index); return; }
-        setInputValue(value)
+        setInputValue(value);
     }
 
-    const classes = classNames('custom_input', className)
-    console.log(ref)
+    const classes = classNames("custom_input-field", className)
     return (
-        <div className={classes}>
+        <div className={'custom_input'}>
             {text && <label className="custom_input-label">{text}</label>}
             <input
                 ref={ref}
-                className="custom_input-field"
+                className={classes}
                 value={value ?? inputValue}
                 onChange={(e) => onInputChange(e.target.value)}
                 type={type ?? 'text'}
