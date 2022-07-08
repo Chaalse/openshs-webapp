@@ -29,11 +29,11 @@ export const RunSettingsFormView: FC<RunSettingsFormViewProps> = () => {
         >
             <div className="simulator_settings-AggregateSettings">
                 <CustomInput
-                    text="Aggregated days"
+                    text="Days"
                     className="simulator_settings-input days"
                 />
                 <CustomInput
-                    text="Time margin"
+                    text="Margin"
                     className="simulator_settings-input margin"
                 />
                 <CustomInput
