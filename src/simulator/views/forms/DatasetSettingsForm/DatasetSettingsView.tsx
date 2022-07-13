@@ -10,7 +10,7 @@ export const DatasetSettingsView: FC<DatasetSettingsViewProps> = () => {
     return (
         <Card
             type="inner"
-            title="Dataset settings"
+            header={{title:"Dataset settings"}}
             className="simulator_settings"
         >
             <div className="dataset_settings">

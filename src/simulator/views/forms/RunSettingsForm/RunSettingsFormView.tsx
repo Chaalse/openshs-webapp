@@ -24,7 +24,7 @@ export const RunSettingsFormView: FC<RunSettingsFormViewProps> = () => {
     return (
         <Card
             type="inner"
-            title="Simulation settings"
+            header={{title:'Simulation settings', icon: 'help'}}
             className="simulator_settings"
         >
             <div className="simulator_settings-AggregateSettings">

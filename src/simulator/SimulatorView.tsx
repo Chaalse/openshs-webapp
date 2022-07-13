@@ -14,11 +14,11 @@ type SimulatorViewProps = {
 
 const SimulatorView: FC<SimulatorViewProps> = () => {
     return (
-        <Card title={SimulatorTitle}>
+        <Card header={{title: SimulatorTitle}}>
 
             <div className="simulator">
                 <Card
-                    title="Customize simulation and datasets"
+                    header={{title: "Customize simulation and datasets"}}
                     type="inner"
                     className="simulator_settings-container"
                 >

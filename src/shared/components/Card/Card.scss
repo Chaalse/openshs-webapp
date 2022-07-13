@@ -1,22 +1,50 @@
+@import '../../../styles/colors';
+
 .card {
     height: 100%;
 
-    .title {
-        height: fit-content;
-    }
+    .card__header {
+        display: flex;
+        flex-direction: row;
 
-    &.main_screen {
-        .title {
-            margin: 8% 0 0 12%;
+        .card__header__icon {
+            color: $ocean-blue;
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            justify-content: end;
+        }
+        
+        .card__header__title {
+            min-width: fit-content;
+            height: fit-content;
         }
     }
-    
-    &.inner {
+
+    &--main {
+        .card__header {
+           
+            .card__header__title {
+                margin: 8% 0 0 12%;
+            }
+        }
+    }
+
+    &--inner {
         border-radius: 0.6rem;
 
-        .title {
-            margin: 0;
+        label,
+        .card__header__title {
+            color: $ocean-blue;
         }
+
+        .card__header {
+            .card__header__title {
+                font-size: 22px;
+                margin: 0;
+            }
+        }
+
     }
 
 }

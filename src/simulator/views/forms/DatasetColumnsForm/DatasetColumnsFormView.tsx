@@ -28,8 +28,8 @@ export const DatasetColumnsFormView: FC<DatasetColumnsFormProps> = ({
     return (
         <Card
             type="inner"
-            title="Activities settings"
             className="simulator_settings"
+            header={{title: 'Dataset columns', icon:'help'}}
         >
             <div className="dataset_settings">
                 {columns.map((column, i) => {

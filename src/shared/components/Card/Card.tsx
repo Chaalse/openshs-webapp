@@ -1,29 +1,36 @@
 import classNames from "classnames";
-import { FC } from "react";
+import { FC, ReactChild, ReactElement, ReactNode } from "react";
+import Icon from "../CustomIcon/Icon";
 import './Card.scss';
 
+type CardHeaderProps = {
+    title: string,
+    icon?: string
+}
 
 type CardProps = {
     className?: string
-    title: string,
-    type? : 'main_screen' | 'inner'
+    type?: 'main' | 'inner' | 'small'
+    header: CardHeaderProps,
+    children?: ReactNode
 }
 
 
-const Card: FC<CardProps> = ({
-    className,
-    title,
-    type = 'main_screen',
-    children,
-}) => {
+const Card: FC<CardProps> = (props: CardProps) => {
+    const { className, header, type, children } = props;
 
-    const classes = classNames('card', className, type)
+    const classes = classNames(`card card--${type}`, className)
     return (
         <div className={classes}>
-            <h1 className="title">
-                {title}
-            </h1>
-            {children}
+            <div className="card__header">
+                <h1 className="card__header__title">
+                    {header.title}
+                </h1>
+                <Icon icon={header.icon!} className={'card__header__icon'}/>
+            </div>
+            <div>
+                {children}
+            </div>
         </div>
     )
 }

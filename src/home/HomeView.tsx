@@ -8,8 +8,7 @@ const HomeView: FC<{}> = () => {
 
 
     return (
-        <Card title={HomeTitle} className="home">
-        </Card>
+        <Card header={{title: HomeTitle}} className="home"/>
     )
 }
 
