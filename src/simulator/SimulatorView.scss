@@ -22,6 +22,12 @@
     margin-top: 16px;
     border: 3px dashed $sky-blue;
     height: fit-content;
+    max-height: 170px;
+
+    &.datasetSettings {
+        overflow-y: auto;
+        padding-bottom: 20px;
+    }
 
     .card__header__title {
         font-size: 18px;
@@ -44,7 +50,7 @@
 
     .simulator_settings-AggregateSettings {
         display: grid;
-        grid-template-columns: 24% 19% 28% 22%;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         gap: 16px;
 
         .simulator_settings-input {
@@ -92,7 +98,7 @@
 
 .dataset_settings {
     display: grid;
-    grid-template-columns: repeat(4, 24%);
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
     grid-template-rows: 2 40px;
     gap: 8px;
     margin-top: 8px;
@@ -100,6 +106,8 @@
     .dataset_add-btn {
         margin-left: 8px;
         border-radius: 100%;
+        min-width: 35px;
+        min-height: 35px;
         padding: 5px;
 
         &:hover {
