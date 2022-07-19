@@ -1,5 +1,7 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import Card from "../shared/components/Card/Card";
+import { CustomButton } from "../shared/components/CustomButton/CustomButton";
+import { RequestContext } from "./SimulatorDataContainer";
 import './SimulatorView.scss';
 import { DatasetColumnsForm } from "./views/forms/DatasetColumnsForm/DatasetColumnsForm";
 import RunSettingsForm from "./views/forms/RunSettingsForm/RunSettingsForm";
@@ -13,12 +15,20 @@ type SimulatorViewProps = {
 
 
 const SimulatorView: FC<SimulatorViewProps> = () => {
+
+    const { simulatorRepository } = useContext(RequestContext);
+
+    const handle = () => {
+        console.log('click')
+        simulatorRepository.post();
+    }
+
     return (
-        <Card header={{title: SimulatorTitle}}>
+        <Card header={{ title: SimulatorTitle }} type='main'>
 
             <div className="simulator">
                 <Card
-                    header={{title: "Customize simulation and datasets"}}
+                    header={{ title: "Customize simulation and datasets", button: { text: 'START', onClick: () => { } } }}
                     type="inner"
                     className="simulator_settings-container"
                 >
@@ -27,8 +37,14 @@ const SimulatorView: FC<SimulatorViewProps> = () => {
 
                         <DatasetColumnsForm />
                     </div>
+                    <div className="bottom">
+                        <CustomButton
+                            text="START SIMULATION"
+                            onClick={() => handle()}
+                            className="starter__btn"
+                        />
+                    </div>
                 </Card>
-
             </div>
         </Card>
     )

@@ -19,10 +19,6 @@
 }
 
 .simulator_settings {
-    margin-top: 16px;
-    border: 3px dashed $sky-blue;
-    height: fit-content;
-    max-height: 170px;
 
     &.datasetSettings {
         overflow-y: auto;
@@ -38,7 +34,6 @@
         color: $ocean-blue;
     }
 
-    padding: 20px;
     background-color: $ivory-white;
 
     .simulator_settings-StartingTime {
@@ -98,7 +93,7 @@
 
 .dataset_settings {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-template-rows: 2 40px;
     gap: 8px;
     margin-top: 8px;
@@ -119,9 +114,33 @@
     .dataset_field {
         display: flex;
     }
-    
+
     .dataset_input {
         width: 115px;
         max-width: 115px;
+    }
+}
+
+.bottom {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .starter__btn {
+        label {
+            color: $ivory-white;
+        }
+
+        &:hover {
+            background-color: $sky-blue;
+            label {
+                color: $ocean-blue;
+            }
+        }
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        font-weight: bold;
     }
 }

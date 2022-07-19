@@ -5,10 +5,8 @@ const HomeTitle = "Open Smart Home Simulator";
 
 const HomeView: FC<{}> = () => {
 
-
-
     return (
-        <Card header={{title: HomeTitle}} className="home"/>
+        <Card type={'main'} header={{title: HomeTitle}} className="home"/>
     )
 }
 

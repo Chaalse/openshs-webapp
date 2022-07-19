@@ -1,11 +1,14 @@
 import classNames from "classnames";
-import { FC, ReactChild, ReactElement, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
+import { CustomButton } from "../CustomButton/CustomButton";
 import Icon from "../CustomIcon/Icon";
 import './Card.scss';
 
 type CardHeaderProps = {
     title: string,
-    icon?: string
+    icon?: string,
+    button?: { text: string, onClick: () => void },
+    onIconClick?: () => void
 }
 
 type CardProps = {
@@ -19,6 +22,8 @@ type CardProps = {
 const Card: FC<CardProps> = (props: CardProps) => {
     const { className, header, type, children } = props;
 
+    const [hovered, setHovered] = useState<boolean>(false);
+
     const classes = classNames(`card card--${type}`, className)
     return (
         <div className={classes}>
@@ -26,11 +31,13 @@ const Card: FC<CardProps> = (props: CardProps) => {
                 <h1 className="card__header__title">
                     {header.title}
                 </h1>
-                <Icon icon={header.icon!} className={'card__header__icon'}/>
+                <div className={'card__header__elements'}>
+                    <span onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={header.onIconClick}>
+                        <Icon icon={header.icon!} className={'icon'} outline={hovered} />
+                    </span>
+                </div>
             </div>
-            <div>
-                {children}
-            </div>
+            {children}
         </div>
     )
 }

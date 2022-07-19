@@ -13,6 +13,7 @@
 
     &:hover {
         label, .icon {
+            cursor: pointer;
             color: $ocean-blue;
         }
         background-color: $ivory-white;

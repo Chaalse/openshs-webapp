@@ -1,31 +1,65 @@
-import { useEffect } from "react";
 import { createContext, FC, useState } from "react";
+import ApiSimulatorRepository from "../api/ApiSimulatorRepository";
+import ISimulatorRepository from "../api/interfaces/ISimulatorRepository";
 import SimulatorView from "./SimulatorView";
 
-export const Context = createContext({
-    text: '',
-    setText: (value: string) => {}
+
+type HelperCardProps = {
+    display: boolean,
+    setDisplay: () => void
+}
+
+const columnsHelper: HelperCardProps = {
+    display: false,
+    setDisplay: () => { }
+}
+
+const settingsHelper: HelperCardProps = {
+    display: false,
+    setDisplay: () => { }
+}
+
+export const HelpersContext = createContext({
+    columnsHelper: columnsHelper,
+    settingsHelper: settingsHelper,
+});
+
+const repository: ISimulatorRepository = new ApiSimulatorRepository();
+
+export const RequestContext = createContext({
+    simulatorRepository: repository
 });
 
 const SimulatorDataContainer: FC<{}> = () => {
 
 
-    const [prueba, setPrueba] = useState('');
+    const [columnsHelp, setColumnsHelp] = useState<boolean>(false);
 
-    const handle = (value: string) => {
-        setPrueba(value);
+    const handleColumns = () => {
+        setColumnsHelp(!columnsHelp);
     }
 
-    const value = () => ({text: prueba, setText: handle})
+    const [settingsHelp, setSettingsHelp] = useState<boolean>(false);
 
-    useEffect(() => {
-        console.log(prueba)
-    }, [prueba]);
-    
+    const handleSettings = () => {
+        setSettingsHelp(!settingsHelp);
+    }
+
+    const value = () => ({
+        columnsHelper: { display: columnsHelp, setDisplay: handleColumns },
+        settingsHelper: { display: settingsHelp, setDisplay: handleSettings }
+    });
+
+    const repoValue = () => ({
+        simulatorRepository: repository
+    })
+
     return (
-        <Context.Provider value={value()}>
-            <SimulatorView/>
-        </Context.Provider>
+        <RequestContext.Provider value={repoValue()}>
+            <HelpersContext.Provider value={value()}>
+                <SimulatorView />
+            </HelpersContext.Provider>
+        </RequestContext.Provider>
     )
 }
 

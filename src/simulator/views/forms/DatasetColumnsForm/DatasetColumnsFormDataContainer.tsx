@@ -1,5 +1,4 @@
-import { FC, useContext, useState } from "react";
-import { Context } from "../../../SimulatorDataContainer";
+import { FC, useState } from "react";
 import { DatasetColumnsFormView } from "./DatasetColumnsFormView";
 
 type DatasetColumnsFormDataContainerProps = {
@@ -17,10 +16,7 @@ export const DatasetColumnsFormDataContainer: FC<DatasetColumnsFormDataContainer
 
     const [columns, setColumns] = useState<ColumnProps[]>([baseColumn]);
 
-    const {setText} = useContext(Context);
-
     const handleInputChange = (newValue: string, index: number) => {
-        setText(newValue);
         columns[index].value = newValue
         let temp = [...columns];
         setColumns(temp);
