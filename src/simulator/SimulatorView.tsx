@@ -20,7 +20,12 @@ const SimulatorView: FC<SimulatorViewProps> = () => {
 
     const handle = () => {
         console.log('click')
-        simulatorRepository.post();
+        simulatorRepository.post({
+            context: 'weekday',
+            date: new Date(),
+            dateTime: 'evening',
+            startHour: new Date(Date.now())
+        });
     }
 
     return (

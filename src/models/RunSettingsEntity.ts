@@ -9,8 +9,8 @@ type SimulationDateTimeType = {
 }
 
 export type RunSettingsEntity = {
-    Date: Date,
-    DateTime: SimulationDateTimeType
-    StartHour: Date,
-    Context: SimulationContextType,
+    date: Date,
+    dateTime: 'morning' | 'evening'
+    startHour: Date,
+    context: 'weekday' | 'weekend',
 }

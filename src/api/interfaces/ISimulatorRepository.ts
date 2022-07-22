@@ -1,6 +1,7 @@
+import { RunSettingsEntity } from "../../models/RunSettingsEntity";
 
 
 
 export default interface ISimulatorRepository {
-    post(): Promise<void>;
+    post(data: RunSettingsEntity): Promise<void>;
 }

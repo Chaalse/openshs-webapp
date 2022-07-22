@@ -32,7 +32,6 @@ export const RequestContext = createContext({
 
 const SimulatorDataContainer: FC<{}> = () => {
 
-
     const [columnsHelp, setColumnsHelp] = useState<boolean>(false);
 
     const handleColumns = () => {

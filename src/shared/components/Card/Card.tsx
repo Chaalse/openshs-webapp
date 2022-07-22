@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { FC, ReactNode, useState } from "react";
-import { CustomButton } from "../CustomButton/CustomButton";
 import Icon from "../CustomIcon/Icon";
 import './Card.scss';
 
