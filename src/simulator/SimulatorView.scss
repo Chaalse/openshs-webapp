@@ -1,123 +1,120 @@
 @import '../styles/colors.scss';
 
-.simulator {
-    height: 100%;
-    margin-top: 5%;
-    padding: 0 10% 0 10%;
-}
-
-.simulator_settings-container {
-    width: 100%;
-    background-color: $ivory-white;
-    padding: 20px;
-
-    .grid {
+.settings {
+    &__grid {
         display: grid;
-        grid-template-columns: repeat(2, 49%);
+        grid-template-columns: repeat(2, minmax(205px, 49%));
         gap: 16px;
     }
 }
 
-.simulator_settings {
-
-    &.datasetSettings {
-        overflow-y: auto;
-        padding-bottom: 20px;
-    }
-
-    .card__header__title {
-        font-size: 18px;
-    }
-
-    label,
-    .card__header__title {
-        color: $ocean-blue;
-    }
-
-    background-color: $ivory-white;
-
-    .simulator_settings-StartingTime {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-
-    .simulator_settings-AggregateSettings {
+.simulation {
+    &__fields {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         gap: 16px;
 
-        .simulator_settings-input {
+        .days-margin {
+            display: grid;
+            grid-template-columns: repeat(2, 49%);
+            gap: 8px;
+        }
 
-            &.days,
-            &.margin {
+        &__input {
+
+            &--days,
+            &--margin {
                 width: 30px;
             }
 
-            &.hour {
-                width: 65px;
+            &--hour {
+                width: 110px;
             }
-
         }
     }
 
-    .simulator_settings-DateTime {
+    &__checks {
         display: grid;
         grid-template-columns: repeat(2, 49%);
         gap: 8px;
         font-size: 14px;
         font-weight: bold;
 
-        .date_time-pickers {
+        &__row {
             align-items: center;
             border: 1.5px double $sky-blue;
             border-radius: 0.4rem;
-            margin-top: 5px;
+            margin-top: 16px;
             display: grid;
             grid-template-columns: repeat(3, 33.3%);
             padding: 8px 0 8px 8px;
-        }
 
-        .datetime_checkbox {
-            display: flex;
-            align-items: center;
+            .checkbox {
+                label {
+                    font-size: 12px;
+                }
+            }
         }
     }
-
-    .simulator_settings-input {
-        margin: 6px 0 10px 8px;
-    }
-
 }
 
-.dataset_settings {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-template-rows: 2 40px;
-    gap: 8px;
-    margin-top: 8px;
+.dataset {
+    &__fields {
 
-    .dataset_add-btn {
-        margin-left: 8px;
-        border-radius: 100%;
-        min-width: 35px;
-        min-height: 35px;
-        padding: 5px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        grid-template-rows: 2 40px;
+        gap: 8px;
+        margin-top: 8px;
+        overflow-y: auto;
+        max-height: 130px;
 
-        &:hover {
-            background-color: $sky-blue;
+        .field {
+            display: flex;
+
+            &__input {
+                width: 115px;
+                max-width: 115px;
+            }
+
+            &__btn {
+                margin-left: 8px;
+                border-radius: 100%;
+                min-width: 35px;
+                min-height: 35px;
+                padding: 5px;
+
+                &--add {
+                    &:hover {
+                        background-color: $sky-blue;
+                    }
+
+                }
+
+                &--remove {
+                    &:hover {
+                        background-color: tomato;
+                        color: $ivory-white;
+                    }
+
+                }
+
+                &--disabled {
+                    background-color: darkgray;
+                    color: $ivory-white;
+
+                    &:hover {
+                        color: $ivory-white;
+
+                        label,
+                        .icon {
+                            color: $ivory-white;
+                        }
+                    }
+
+                }
+            }
         }
-
-    }
-
-    .dataset_field {
-        display: flex;
-    }
-
-    .dataset_input {
-        width: 115px;
-        max-width: 115px;
     }
 }
 
@@ -127,17 +124,19 @@
     justify-content: center;
     width: 100%;
 
-    .starter__btn {
+    .starter-btn {
         label {
             color: $ivory-white;
         }
 
         &:hover {
             background-color: $sky-blue;
+
             label {
                 color: $ocean-blue;
             }
         }
+
         display: flex;
         justify-content: center;
         width: 30%;

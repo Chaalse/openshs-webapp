@@ -1,24 +1,33 @@
 @import '../../../styles/colors';
 
-.custom_input {
+.custom-input {
     height: fit-content;
-}
 
-.custom_input-field {
-    padding: 5px;
-    border: none;
-    border-bottom: 2px solid $ocean-blue;
-    margin-left: 8px;
-    color: $ocean-blue;
-    background-color: $translucid-sky-blue;
-    height: 20px;
-}
+    .icon {
+        position: absolute;
+        margin: 3px 5px 5px 5px;
+    }
 
-.custom_input-field:focus {
-    outline: none;
-}
+    &__field {
+        padding: 5px;
+        border: none;
+        border-bottom: 2px solid $ocean-blue;
+        color: $ocean-blue;
+        background-color: $translucid-sky-blue;
+        height: 20px;
 
-.custom_input-label {
-    font-size: 14px;
-    font-weight: bold;
+        &--iconed {
+            padding-left: 30px;
+            
+        }
+    }
+
+    &__field:focus {
+        outline: none;
+    }
+
+    &__label {
+        font-size: 14px;
+        font-weight: bold;
+    }
 }

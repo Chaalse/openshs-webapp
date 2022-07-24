@@ -4,7 +4,14 @@
 body {
     background: $background-blue;
     font-family: 'Roboto', Arial, Tahoma, sans-serif;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    #root {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+    }
 }
 
 * {

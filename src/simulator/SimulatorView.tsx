@@ -1,6 +1,8 @@
 import { FC, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "../shared/components/Card/Card";
 import { CustomButton } from "../shared/components/CustomButton/CustomButton";
+import { Constantes } from "../shared/constants/Constantes";
 import { RequestContext } from "./SimulatorDataContainer";
 import './SimulatorView.scss';
 import { DatasetColumnsForm } from "./views/forms/DatasetColumnsForm/DatasetColumnsForm";
@@ -28,29 +30,34 @@ const SimulatorView: FC<SimulatorViewProps> = () => {
         });
     }
 
+    const navigate = useNavigate();
+
     return (
-        <Card header={{ title: SimulatorTitle }} type='main'>
+        <Card header={{
+            title: SimulatorTitle,
+            button: {
+                text: 'LOG IN',
+                onClick: () => navigate(Constantes.LOGIN_PATH)
+            }
+        }} type='main'>
 
-            <div className="simulator">
-                <Card
-                    header={{ title: "Customize simulation and datasets", button: { text: 'START', onClick: () => { } } }}
-                    type="inner"
-                    className="simulator_settings-container"
-                >
-                    <div className="grid">
-                        <RunSettingsForm />
+            <Card header={{ title: "Customize simulation and datasets"}}
+                type="inner"
+                className="settings"
+            >
+                <div className="settings__grid">
+                    <RunSettingsForm />
 
-                        <DatasetColumnsForm />
-                    </div>
-                    <div className="bottom">
-                        <CustomButton
-                            text="START SIMULATION"
-                            onClick={() => handle()}
-                            className="starter__btn"
-                        />
-                    </div>
-                </Card>
-            </div>
+                    <DatasetColumnsForm />
+                </div>
+                <div className="bottom">
+                    <CustomButton
+                        text="START SIMULATION"
+                        onClick={() => handle()}
+                        className="starter-btn"
+                    />
+                </div>
+            </Card>
         </Card>
     )
 }

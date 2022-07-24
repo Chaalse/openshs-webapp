@@ -22,7 +22,7 @@ export const CustomButton: FC<CustomButtonProps> = ({
     const classes = classNames('custom-button', className)
     return (
         <button className={classes} onClick={onClick} disabled={disabled}>
-            <label>{text}</label>
+            {text && <label>{text}</label>}
             {icon && <Icon icon={icon} />}
         </button>
     )

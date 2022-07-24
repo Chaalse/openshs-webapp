@@ -29,31 +29,31 @@ export const DatasetColumnsFormInputCard = (props: DCFInputCardProps) => {
     return (
         <Card
             type="small"
-            className="simulator_settings animate__animated animate__flipInY"
+            className="dataset animate__animated animate__flipInY"
             header={{title: 'Dataset columns', icon:'info', onIconClick: columnsHelper.setDisplay}}
         >
-            <div className="dataset_settings">
+            <div className="dataset__fields">
                 {columns.map((column, i) => {
                     return (
-                        <div className="dataset_field" key={`field-${i}`}>
+                        <div className="field" key={`field-${i}`}>
                             <CustomInput
                                 value={column.value}
                                 index={i}
                                 onChange={(e) => handleInputChange(e, i)}
-                                className={'dataset_input'}
+                                className={'field__input'}
                             />
                             {i === 0 &&
                                 <CustomButton
                                     icon="add"
-                                    className="dataset_add-btn"
+                                    className={`field__btn field__btn${!disableAdd ? '--add': '--disabled'}`}
                                     onClick={handleAdd}
                                     disabled={disableAdd}
                                 />
                             }
                             {i > 0 &&
                                 <CustomButton
-                                    icon="remove"
-                                    className="dataset_add-btn"
+                                    icon="delete"
+                                    className=" field__btn field__btn--remove"
                                     onClick={() => handleRemove(i)}
                                 />}
                         </div>

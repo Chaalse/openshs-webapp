@@ -1,17 +1,18 @@
 @import '../../../styles/colors';
 
 .card {
-    height: 100%;
-
+    height: 100vh;
+    width: 80vw;
+    position: relative;
     .card__header {
         display: flex;
         flex-direction: row;
 
         .card__header__elements {
             display: flex;
-            width: 100%;
             height: fit-content;
-            
+            width: 100%;
+            justify-content: flex-end;
 
             .icon {
                 cursor: pointer;
@@ -27,10 +28,14 @@
     }
 
     &--main {
+        padding: 0 10vw 0 10vw;
         .card__header {
-
             .card__header__title {
                 margin: 8% 0 0 12%;
+            }
+
+            .card__header__elements {
+                margin-top: 8%;
             }
         }
     }
@@ -43,17 +48,32 @@
         .card__header__title {
             color: $ocean-blue;
         }
+
     }
 
     &--inner {
+        height: 52%;
+        margin-top: 5%;
+        width: 96.1%;
+        background-color: $ivory-white;
+        padding: 20px;
+        min-width: 525px;
+
         .card__header {
             .card__header__title {
                 font-size: 22px;
                 margin: 0;
             }
+
             .card__header__elements {
+                width: 100%;
                 justify-content: center;
+                margin-top: 0;
             }
+        }
+
+        .custom-button {
+            label {color: $ivory-white;}
         }
     }
 
@@ -62,11 +82,14 @@
         margin-top: 16px;
         border: 3px dashed $sky-blue;
         height: 160px;
+        min-width: 205px;
+        width: 90%;
         .card__header {
             .card__header__title {
                 font-size: 18px;
                 margin: 0;
             }
+
             .card__header__elements {
                 justify-content: flex-end;
             }

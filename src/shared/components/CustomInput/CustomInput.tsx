@@ -1,9 +1,11 @@
 import classNames from "classnames";
 import { FC, useState } from "react";
+import Icon from "../CustomIcon/Icon";
 
 import './CustomInput.scss';
 
 type CustomInputProps = {
+    divClassname?: string,
     className?: string
     text?: string,
     type?: string,
@@ -11,12 +13,15 @@ type CustomInputProps = {
     checked?: boolean,
     ref?: any,
     index?: number,
+    placeholder?: string,
+    icon?: string,
     onChange?: (value: string, index?: number) => void
-    onChecked?: () => void
+    onChecked?: () => void,
 }
 
 
 export const CustomInput: FC<CustomInputProps> = ({
+    divClassname,
     className,
     text,
     type,
@@ -24,6 +29,8 @@ export const CustomInput: FC<CustomInputProps> = ({
     value,
     ref,
     index,
+    placeholder,
+    icon,
     onChange,
     onChecked
 }) => {
@@ -36,10 +43,12 @@ export const CustomInput: FC<CustomInputProps> = ({
         setInputValue(value);
     }
 
-    const classes = classNames("custom_input-field", className)
+    const classes = classNames(`custom-input__field ${icon ? 'custom-input__field--iconed' : ''}`, className);
+    const divClass = classNames('custom-input', divClassname ?? '')
     return (
-        <div className={'custom_input'}>
-            {text && <label className="custom_input-label">{text}</label>}
+        <div className={divClass}>
+            {text && <label className="custom-input__label">{text}</label>}
+            {icon && <Icon icon={icon}></Icon>}
             <input
                 ref={ref}
                 className={classes}
@@ -47,6 +56,7 @@ export const CustomInput: FC<CustomInputProps> = ({
                 onChange={(e) => onInputChange(e.target.value)}
                 type={type ?? 'text'}
                 checked={checked}
+                placeholder={placeholder}
             />
 
         </div>)

@@ -24,60 +24,62 @@ export const RunSettingsFormInputCard: FC<{}> = () => {
     return (
         <Card
             type="small"
-            header={{title:'Simulation settings', icon: 'info', onIconClick: settingsHelper.setDisplay}}
-            className="simulator_settings animate__animated animate__flipInY"
+            header={{ title: 'Simulation settings', icon: 'info', onIconClick: settingsHelper.setDisplay }}
+            className="simulation animate__animated animate__flipInY"
         >
-            <div className="simulator_settings-AggregateSettings">
-                <CustomInput
-                    text="Days"
-                    className="simulator_settings-input days"
-                />
-                <CustomInput
-                    text="Margin"
-                    className="simulator_settings-input margin"
-                />
+            <div className="simulation__fields">
+                <div className="days-margin">
+                    <CustomInput
+                        text="Days"
+                        className="simulation__fields__input simulation__fields__input--days"
+                    />
+                    <CustomInput
+                        text="Margin"
+                        className="simulation__fields__input simulation__fields__input--margin"
+                    />
+
+                </div>
                 <CustomInput
                     text="Start date"
                     type="date"
-                    className="simulator_settings-input date"
                 />
                 <CustomInput
                     text="Start hour"
                     type="time"
-                    className="simulator_settings-input hour"
+                    className="simulation__fields__input simulation__fields__input--hour"
                 />
             </div>
-            <div className="simulator_settings-DateTime">
-                <div className="date_time-pickers">
+            <div className="simulation__checks">
+                <div className="simulation__checks__row">
                     <label>Time slot</label>
                     <CustomInput
                         text="Morning"
                         type="checkbox"
-                        className="datetime_checkbox"
+                        divClassname="checkbox"
                         checked={isMorning}
                         onChecked={handleMorningCheck}
                     />
                     <CustomInput
                         text="Evening"
                         type="checkbox"
-                        className="datetime_checkbox"
+                        divClassname="checkbox"
                         checked={!isMorning}
                         onChecked={handleMorningCheck}
                     />
                 </div>
-                <div className="date_time-pickers">
+                <div className="simulation__checks__row">
                     <label>Day context</label>
                     <CustomInput
                         text="Weekday"
                         type="checkbox"
-                        className="datetime_checkbox"
+                        divClassname="checkbox"
                         checked={isWeekday}
                         onChecked={handleWeekdayCheck}
                     />
                     <CustomInput
                         text="Weekend"
                         type="checkbox"
-                        className="datetime_checkbox"
+                        divClassname="checkbox"
                         checked={!isWeekday}
                         onChecked={handleWeekdayCheck}
                     />
