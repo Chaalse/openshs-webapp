@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Constantes } from "../../../constants/Constantes";
+import { AuthContext } from "../../../contexts/AuthContext";
 import '../scss/NavMenu.scss';
 import { NavMenuItem } from "./NavMenuItem";
 
@@ -15,21 +16,23 @@ export const NavMenu: FC<NavMenuProps> = ({
     navigate
 }) => {
 
+    const { user } = useContext(AuthContext);
 
-    const classes = classNames("nav_menu animate__animated animate__slideInLeft", isToggled ? 'visible' : 'hidden');
+    const classes = classNames("nav__menu animate__animated animate__slideInLeft", isToggled ? 'visible' : 'hidden');
 
     return (
         <ul className={classes} >
+            <label className="nav__menu__user">{user != null ? 'Logged with: ' + user.email : 'You are not logged'}</label>
             <NavMenuItem
                 text="HOME"
                 icon="home"
-                className="nav_menu_item initial"
+                className="nav__menu__item nav__menu__item--initial"
                 onClick={() => navigate(Constantes.HOME_PATH)}
                 />
             <NavMenuItem
                 text="SIMULATOR"
                 icon="chair"
-                className="nav_menu_item"
+                className="nav__menu__item"
                 onClick={() => navigate(Constantes.SIMULATOR_PATH)}
             />
         </ul>

@@ -8,6 +8,7 @@
     }
 }
 
+
 .simulation {
     &__fields {
         display: grid;
@@ -49,6 +50,10 @@
             grid-template-columns: repeat(3, 33.3%);
             padding: 8px 0 8px 8px;
 
+            .row-label {
+                color: $ocean-blue;
+            }
+            
             .checkbox {
                 label {
                     font-size: 12px;
@@ -65,7 +70,6 @@
         grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
         grid-template-rows: 2 40px;
         gap: 8px;
-        margin-top: 8px;
         overflow-y: auto;
         max-height: 130px;
 

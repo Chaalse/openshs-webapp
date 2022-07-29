@@ -1,8 +1,7 @@
 import { FC, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import Card from "../shared/components/Card/Card";
 import { CustomButton } from "../shared/components/CustomButton/CustomButton";
-import { Constantes } from "../shared/constants/Constantes";
+import { AuthContext } from "../shared/contexts/AuthContext";
 import { RequestContext } from "./SimulatorDataContainer";
 import './SimulatorView.scss';
 import { DatasetColumnsForm } from "./views/forms/DatasetColumnsForm/DatasetColumnsForm";
@@ -12,7 +11,6 @@ const SimulatorTitle = "Simulator Setup"
 
 
 type SimulatorViewProps = {
-
 }
 
 
@@ -20,8 +18,9 @@ const SimulatorView: FC<SimulatorViewProps> = () => {
 
     const { simulatorRepository } = useContext(RequestContext);
 
+    const { button } = useContext(AuthContext);
+
     const handle = () => {
-        console.log('click')
         simulatorRepository.post({
             context: 'weekday',
             date: new Date(),
@@ -30,15 +29,10 @@ const SimulatorView: FC<SimulatorViewProps> = () => {
         });
     }
 
-    const navigate = useNavigate();
-
     return (
         <Card header={{
             title: SimulatorTitle,
-            button: {
-                text: 'LOG IN',
-                onClick: () => navigate(Constantes.LOGIN_PATH)
-            }
+            button: button,
         }} type='main'>
 
             <Card header={{ title: "Customize simulation and datasets"}}

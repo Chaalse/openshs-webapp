@@ -20,6 +20,12 @@
                 &__flexbox {
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    .field-error {
+                        font-size: 12px;
+                        color: red;
+                    }
                 }
             }
 
@@ -30,6 +36,7 @@
                 padding-right: 25.25px;
 
                 &__span {
+                    cursor: pointer;
                     height: 20px;
                     font-size: 12px;
                     color: $ocean-blue;

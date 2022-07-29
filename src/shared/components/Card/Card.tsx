@@ -7,7 +7,7 @@ import './Card.scss';
 type CardHeaderProps = {
     title: string,
     icon?: string,
-    button?: { text: string, onClick: () => void },
+    button?: { text: string, onClick: () => void, className?: string },
     onIconClick?: () => void
 }
 
@@ -24,7 +24,8 @@ const Card: FC<CardProps> = (props: CardProps) => {
 
     const [hovered, setHovered] = useState<boolean>(false);
 
-    const classes = classNames(`card ${type ? `card--${type}` : ''}`, className)
+    const classes = classNames(`card ${type ? `card--${type}` : ''}`, className);
+    
     return (
         <div className={classes}>
             <div className="card__header">
@@ -43,7 +44,7 @@ const Card: FC<CardProps> = (props: CardProps) => {
                                 <CustomButton
                                     text={header.button.text}
                                     onClick={header.button.onClick}
-                                    className={'button'}
+                                    className={`button-box__btn ${header.button.className}`}
                                 />
                             </div>
                         }

@@ -51,7 +51,7 @@ export const RunSettingsFormInputCard: FC<{}> = () => {
             </div>
             <div className="simulation__checks">
                 <div className="simulation__checks__row">
-                    <label>Time slot</label>
+                    <label className="row-label">Time slot</label>
                     <CustomInput
                         text="Morning"
                         type="checkbox"
@@ -68,7 +68,7 @@ export const RunSettingsFormInputCard: FC<{}> = () => {
                     />
                 </div>
                 <div className="simulation__checks__row">
-                    <label>Day context</label>
+                    <label className="row-label">Day context</label>
                     <CustomInput
                         text="Weekday"
                         type="checkbox"

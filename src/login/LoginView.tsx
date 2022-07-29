@@ -1,9 +1,10 @@
-import { FC } from "react"
+import { FC, useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Card from "../shared/components/Card/Card"
 import { CustomButton } from "../shared/components/CustomButton/CustomButton";
 import { CustomInput } from "../shared/components/CustomInput/CustomInput";
 import { Constantes } from "../shared/constants/Constantes";
+import { AuthContext } from "../shared/contexts/AuthContext";
 import './scss/LoginView.scss';
 
 
@@ -11,6 +12,32 @@ import './scss/LoginView.scss';
 export const LoginView: FC<{}> = () => {
 
   const navigate = useNavigate();
+
+  const { user, signIn } = useContext(AuthContext);
+
+  const [email, setEmail] = useState<string>('');
+
+  const [password, setPassword] = useState<string>('');
+
+  const onChangeEmail = (value: string) => {
+    setEmail(value);
+  }
+
+  const onChangePassword = (value: string) => {
+    setPassword(value);
+  }
+
+  const handleSignIn = () => {
+    signIn(email, password);
+  }
+
+  useEffect(() => {
+    if (user !== null) {
+      navigate(Constantes.HOME_PATH);
+    }
+  });
+
+
   return (
     <Card
       type="main"
@@ -27,7 +54,9 @@ export const LoginView: FC<{}> = () => {
             <div className={'form__fields__flexbox'}>
               <CustomInput
                 icon="account_circle"
-                placeholder="Username"
+                placeholder="Email"
+                value={email}
+                onChange={(e: string) => onChangeEmail(e)}
               />
             </div>
             <div className={'form__fields__flexbox'}>
@@ -35,25 +64,26 @@ export const LoginView: FC<{}> = () => {
                 icon={'lock'}
                 type={'password'}
                 placeholder={'Password'}
+                onChange={(e: string) => onChangePassword(e)}
               />
             </div>
           </div>
           <div className="form__actions">
             <CustomButton
               text="LOG IN"
-              onClick={() => { }}
+              onClick={handleSignIn}
             />
             <span className={'form__actions__span form__actions__span--first'}>
-              <a className={'link'}
+              <span className={'link'}
                 onClick={() => navigate(Constantes.CHANGEPASS_PATH)}>
                 Have you forgotten your password?
-              </a>
+              </span>
             </span>
             <span className={'form__actions__span form__actions__span--first'}>
-              <a className={'link'}
+              <span className={'link'}
                 onClick={() => navigate(Constantes.REGISTER_PATH)}>
                 Don't have an account? Sign in
-              </a>
+              </span>
             </span>
           </div>
         </Card>

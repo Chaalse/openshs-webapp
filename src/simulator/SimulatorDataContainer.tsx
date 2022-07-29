@@ -56,7 +56,7 @@ const SimulatorDataContainer: FC<{}> = () => {
     return (
         <RequestContext.Provider value={repoValue()}>
             <HelpersContext.Provider value={value()}>
-                <SimulatorView />
+                <SimulatorView/>
             </HelpersContext.Provider>
         </RequestContext.Provider>
     )

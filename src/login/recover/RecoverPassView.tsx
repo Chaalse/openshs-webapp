@@ -45,10 +45,10 @@ export const RecoverPassView: FC<{}> = () => {
               onClick={() => { }}
             />
             <span className={'form__actions__span form__actions__span--first'}>
-              <a className={'link'}
+              <span className={'link'}
                 onClick={() => navigate(Constantes.REGISTER_PATH)}>
                   Don't have an account? Sign in
-              </a>
+              </span>
             </span>
           </div>
         </Card>

@@ -10,13 +10,14 @@
     color: $ivory-white;
     font-size: 14px;
     padding: 8px;
-
+    font-weight: bold;
     &:hover {
         label, .icon {
             cursor: pointer;
             color: $ocean-blue;
         }
-        background-color: $ivory-white;
+        color: $ocean-blue;
+        background-color: $sky-blue;
     }
 
 

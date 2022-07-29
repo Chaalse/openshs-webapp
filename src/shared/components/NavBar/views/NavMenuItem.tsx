@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { FC } from "react";
 import Icon from "../../CustomIcon/Icon";
-import '../scss/NavMenuItem.scss';
 
 type NavMenuItemProps = {
     text: string,
